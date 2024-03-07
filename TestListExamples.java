@@ -66,5 +66,59 @@ public class TestListExamples {
         assertEquals(expectedOutput,gottenOutput);
 
     }
+    @Test
+   public void filterTest() {
+       List<String> inputList = Arrays.asList("apple", "bbaannaannaa", "cherry", "daaatteeee");
+       List<String> expectedResult = Arrays.asList("apple", "cherry");
+       StringChecker a = new Tester();
+
+
+       List<String> result = ListExamples.filter(inputList, a);
+      
+       assertEquals(expectedResult, result);
+   }
+
+
+   @Test
+   public void mergeTest() {
+       List<String> list1 = Arrays.asList("apple", "banana", "cherry");
+       List<String> list2 = Arrays.asList("date", "fig", "grape");
+       List<String> expectedResult = Arrays.asList("apple", "banana", "cherry", "date", "fig", "grape");
+
+
+       List<String> result = ListExamples.merge(list1, list2);
+
+
+       assertEquals(expectedResult, result);
+   }
+
+
+   @Test
+   public void mergeTestWithEmptyList() {
+       List<String> list1 = Arrays.asList("apple", "banana", "cherry");
+       List<String> list2 = new ArrayList<>();
+       List<String> expectedResult = Arrays.asList("apple", "banana", "cherry");
+
+
+       List<String> result = ListExamples.merge(list1, list2);
+
+
+       assertEquals(expectedResult, result);
+   }
+
+
+   @Test
+   public void mergeTestWithEmptyLists() {
+       List<String> list1 = new ArrayList<>();
+       List<String> list2 = new ArrayList<>();
+       List<String> expectedResult = new ArrayList<>();
+
+
+       List<String> result = ListExamples.merge(list1, list2);
+
+
+       assertEquals(expectedResult, result);
+   }
+
   
 }
